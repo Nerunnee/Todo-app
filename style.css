@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 377px;
+  height: 290px;
+  border-radius: 6px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0px 0px 12px 0px #00000029;
+}
+
+.task__text {
+  width: 280px;
+  height: 40px;
+  border-radius: 6px;
+  padding: 8px 16px;
+  border: 1px solid #e4e4e7;
+}
+
+.task__add {
+  width: 59px;
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  padding: 8px 16px;
+  background: #3c82f6;
+  color: #f9f9f9;
+}

@@ -3,10 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo-app</title>
+    <title>To-Do List</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <div class="container">
+      <h1>To-Do List</h1>
+
+      <div>
+        <input
+          type="text"
+          placeholder="add a new task.."
+          class="task__text"
+          id="input"
+        />
+        <button class="task__add" id="add">add</button>
+      </div>
+
+      <div class="task-container" id="task-container"></div>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
