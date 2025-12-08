@@ -14,13 +14,21 @@
         <input
           type="text"
           placeholder="add a new task.."
-          class="task__text"
+          class="input__text"
           id="input"
         />
-        <button class="task__add" id="add">add</button>
+        <button class="input__add" id="add">add</button>
       </div>
 
-      <div class="task-container" id="task-container"></div>
+      <div class="show-container">
+        <button id="showAll" class="show__all">All</button>
+        <button id="showActive" class="show__active">Active</button>
+        <button is="showCompleted" class="show__completed">Completed</button>
+      </div>
+
+      <div class="task-box">
+        <div id="task-container"></div>
+      </div>
     </div>
     <script src="./script.js"></script>
   </body>

@@ -6,7 +6,7 @@
 
 .container {
   width: 377px;
-  height: 290px;
+  height: 100vh;
   border-radius: 6px;
   padding: 24px 16px;
   display: flex;
@@ -16,7 +16,7 @@
   box-shadow: 0px 0px 12px 0px #00000029;
 }
 
-.task__text {
+.input__text {
   width: 280px;
   height: 40px;
   border-radius: 6px;
@@ -24,7 +24,7 @@
   border: 1px solid #e4e4e7;
 }
 
-.task__add {
+.input__add {
   width: 59px;
   height: 40px;
   border-radius: 6px;
@@ -32,4 +32,85 @@
   padding: 8px 16px;
   background: #3c82f6;
   color: #f9f9f9;
+}
+
+.show-button {
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+}
+
+.show__all {
+  width: 38px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  padding: 4px 12px;
+}
+
+.show__all:hover {
+  background: #3c82f6;
+}
+
+.show__active {
+  width: 60px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  padding: 4px 12px;
+}
+
+.show__active:hover {
+  background: #3c82f6;
+}
+
+.show__completed {
+  width: 87px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  padding: 4px 12px;
+}
+
+.show__completed:hover {
+  background: #3c82f6;
+}
+
+.task-box {
+  display: flex;
+  gap: 20px;
+}
+
+.task-container {
+  width: 345px;
+  height: 62px;
+  border-radius: 6px;
+  padding: 16px;
+  background: #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task__checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  border: 1px solid #767676;
+}
+
+.task__text {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+}
+
+.task__delete {
+  width: 67px;
+  height: 30pxs;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  background: #fef2f2;
+  color: #ef4444;
 }

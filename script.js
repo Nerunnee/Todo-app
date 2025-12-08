@@ -1,6 +1,8 @@
 const inputs = document.querySelector("#input");
 const addElement = document.querySelector("#add");
 const taskContainer = document.querySelector("#task-container");
+const showAll = document.querySelector("#showAll");
+const showActive = document.querySelector("#showActive");
 
 const tasks = [];
 
@@ -21,6 +23,8 @@ const add = () => {
 
   clearInput();
   renderTasks();
+  // all();
+  active();
 };
 
 const renderTasks = () => {
@@ -32,18 +36,21 @@ const renderTasks = () => {
     taskElenmentsHTML += taskElement;
   });
 
-  console.log(taskElenmentsHTML);
   taskContainer.innerHTML = taskElenmentsHTML;
 };
 
 const createTaskElement = (task) => {
-  return `<div class="task">
-    <input type="checkbox" name="checkbox" class="task__checkbox" ${
-      task.isComplete && "checked"
-    }/>
-    <p class="task__text">${task.text}</p>
-    <button class="task__delete">delete</button>
-    </div>`;
+  return `
+    <div class="task-container">
+      <div  class="task-box">
+       <input type="checkbox" name="checkbox" class="task__checkbox" ${
+         task.isComplete && "checked"
+       }/>
+      <p class="task__text">${task.text}</p>
+      </div>              
+      <button class="task__delete">delete</button>
+    </div>
+    `;
 };
 
 const clearInput = () => {
@@ -51,3 +58,15 @@ const clearInput = () => {
 };
 
 addElement.addEventListener("click", add);
+
+// const all = showAll.reduce((acc, taskId) => (acc += taskId), 0);
+
+const active = showActive.filter((tasks) => {
+  if (tasks.id === "checked") {
+    return true;
+  } else {
+    return false;
+  }
+});
+
+showActive.addEventListener("click", active);
