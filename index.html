@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>To-Do List</h1>
+      <h1 class="text">To-Do List</h1>
 
       <div>
         <input
@@ -32,13 +32,15 @@
         <button id="showCompleted" class="show__completed">Completed</button>
       </div>
 
-      <div id="task-container" class="text1">No tasks yet. Add one above!</div>
+      <div id="task-container" class="task-text">
+        No tasks yet. Add one above!
+      </div>
 
       <div id="task-completed"></div>
 
-      <div>
-        <span class="text2">Powered by</span>
-        <span>Nerunnee</span>
+      <div class="footer-container">
+        <span class="footer__text">Powered by</span>
+        <span class="footer__textName">Nerunnee</span>
       </div>
     </div>
     <script src="./script.js"></script>

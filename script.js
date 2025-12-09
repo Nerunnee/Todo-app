@@ -11,6 +11,7 @@ let taskId = 1;
 
 const add = () => {
   const taskText = inputs.value;
+  if (!taskText) return;
 
   const task = {
     id: taskId,
@@ -44,10 +45,10 @@ const createTaskElement = (task) => {
     <div class="task-container">
       <div class="task-box">
           <input type="checkbox" name="checkbox" class="task__checkbox"  ${
-            task.isComplete && "checked"
+            task.isComplete ? "checked" : ""
           } onclick="completedTask(${task.id})"/>
            <p class="task__text ${
-             task.isComplete && "task__text--complete"
+             task.isComplete ? "task__text--complete" : ""
            }" >${task.text}</p>
       </div>       
       <button class="task__delete" onclick="deleteTask(${
@@ -62,16 +63,11 @@ const clearInput = () => {
 
 const onChangeFilter = (filter) => {
   const filteredtasks = tasks.filter((task) => {
-    if (filter === "all") {
-      return true;
-    }
+    if (filter === "all") return true;
 
-    if (filter === "active") {
-      return task.isComplete === false;
-    }
-    if (filter === "completed") {
-      return task.isComplete === true;
-    }
+    if (filter === "active") return !task.isComplete;
+
+    if (filter === "completed") return task.isComplete;
   });
 
   renderTasks(filteredtasks);
@@ -83,7 +79,9 @@ const completedTask = (id) => {
       task.isComplete = !task.isComplete;
     }
   });
+
   renderTasks(tasks);
+  updateCompletedCount();
 };
 
 const deleteTask = (taskId) => {
@@ -101,13 +99,8 @@ const deleteTask = (taskId) => {
   tasks = remainingTask;
 
   renderTasks(tasks);
+  updateCompletedCount();
 };
-
-showAll.onclick = () => onChangeFilter("all");
-showActive.onclick = () => onChangeFilter("active");
-showCompleted.onclick = () => onChangeFilter("completed");
-
-addElement.addEventListener("click", add);
 
 const updateCompletedCount = () => {
   // const completedCount = tasks.filter((task) => {
@@ -123,22 +116,20 @@ const updateCompletedCount = () => {
 
   taskCompleted.innerHTML = `
       <div class="taskCompleted">
-        <p> ${completedCount} of ${totalCount} tasks completed</p>
-        <button>Clear completed</button>
+        <p class="taskC__text"> ${completedCount} of ${totalCount} tasks completed</p>
+        <button onclick="clearCompleted()" class="taskC__delete">Clear completed</button>
       </div>`;
 };
 
 const clearCompleted = () => {
   tasks = tasks.filter((task) => !task.isComplete);
-  renderTasks(tasks);
-  updateCompletedCount();
-};
-
-const checkCompletedTask = (id) => {
-  tasks = tasks.map((task) =>
-    task.id === id ? { ...task, isComplete: !task.isComplete } : task
-  );
 
   renderTasks(tasks);
   updateCompletedCount();
 };
+
+showAll.onclick = () => onChangeFilter("all");
+showActive.onclick = () => onChangeFilter("active");
+showCompleted.onclick = () => onChangeFilter("completed");
+
+addElement.addEventListener("click", add);
