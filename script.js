@@ -46,7 +46,7 @@ const createTaskElement = (task) => {
       <div class="task-box">
           <input type="checkbox" name="checkbox" class="task__checkbox"  ${
             task.isComplete ? "checked" : ""
-          } onclick="completedTask(${task.id})"/>
+          } onclick="toggleCompleted(${task.id})"/>
            <p class="task__text ${
              task.isComplete ? "task__text--complete" : ""
            }" >${task.text}</p>
@@ -73,9 +73,9 @@ const onChangeFilter = (filter) => {
   renderTasks(filteredtasks);
 };
 
-const completedTask = (id) => {
+const toggleCompleted = (taskId) => {
   tasks.forEach((task) => {
-    if (task.id === id) {
+    if (task.id === taskId) {
       task.isComplete = !task.isComplete;
     }
   });
@@ -85,9 +85,6 @@ const completedTask = (id) => {
 };
 
 const deleteTask = (taskId) => {
-  // const remainingTasks = tasks.filter((task) => task.id !== taskId);
-  // tasks.length = 0;
-  // tasks.push(...remainingTasks);
   const remainingTask = tasks.filter((task) => {
     if (task.id === taskId) {
       return false;
@@ -103,14 +100,6 @@ const deleteTask = (taskId) => {
 };
 
 const updateCompletedCount = () => {
-  // const completedCount = tasks.filter((task) => {
-  //   if (task.isComplete == true) {
-  //     return completedCount;
-  //   } else {
-  //     return 0;
-  //   }
-  // });
-
   const completedCount = tasks.filter((task) => task.isComplete).length;
   const totalCount = tasks.length;
 

@@ -53,6 +53,10 @@
   font-size: 14px;
 }
 
+.input__add:hover {
+  background: #33bdb3;
+}
+
 .show-container {
   width: 100%;
   display: flex;
@@ -167,6 +171,11 @@
   font-size: 14px;
 }
 
+.task__delete:hover {
+  background: #33bdb3;
+  color: white;
+}
+
 .taskCompleted {
   width: 345px;
   height: 37px;
@@ -193,6 +202,14 @@
   color: #ef4444;
   border: none;
   background: none;
+}
+
+.taskC__delete:hover {
+  width: 115px;
+  height: 20px;
+  background: #33bdb3;
+  color: white;
+  border-radius: 6px;
 }
 
 .footer-container {
