@@ -122,3 +122,21 @@ showActive.onclick = () => onChangeFilter("active");
 showCompleted.onclick = () => onChangeFilter("completed");
 
 addElement.addEventListener("click", add);
+
+showAll.addEventListener("click", function () {
+  showAll.classList.add("active");
+  showActive.classList.remove("active");
+  showCompleted.classList.remove("active");
+});
+
+showActive.addEventListener("click", function () {
+  showActive.classList.add("active");
+  showAll.classList.remove("active");
+  showCompleted.classList.remove("active");
+});
+
+showCompleted.addEventListener("click", function () {
+  showCompleted.classList.add("active");
+  showActive.classList.remove("active");
+  showAll.classList.remove("active");
+});

@@ -63,6 +63,11 @@
   gap: 6px;
 }
 
+.active {
+  background: #3c82f6;
+  color: white;
+}
+
 .show__all {
   width: 38px;
   height: 32px;
@@ -76,7 +81,7 @@
 }
 
 .show__all:hover {
-  background: #3c82f6;
+  background: #33bdb3;
   color: white;
 }
 
@@ -93,7 +98,7 @@
 }
 
 .show__active:hover {
-  background: #3c82f6;
+  background: #33bdb3;
   color: white;
 }
 
@@ -110,7 +115,7 @@
 }
 
 .show__completed:hover {
-  background: #3c82f6;
+  background: #33bdb3;
   color: white;
 }
 
