@@ -26,7 +26,6 @@ const add = () => {
   clearInput();
   renderTasks(tasks);
   updateCompletedCount();
-  back();
 };
 
 const renderTasks = (tasks) => {
