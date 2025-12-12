@@ -10,8 +10,8 @@ let tasks = [];
 let taskId = 1;
 
 const add = () => {
-  const taskText = inputs.value;
-  if (!taskText) return;
+  const taskText = inputs.value.trim();
+  if (!taskText) return alert("Please enter a task!");
 
   const task = {
     id: taskId,
@@ -26,6 +26,7 @@ const add = () => {
   clearInput();
   renderTasks(tasks);
   updateCompletedCount();
+  back();
 };
 
 const renderTasks = (tasks) => {
@@ -93,6 +94,10 @@ const deleteTask = (taskId) => {
     }
   });
 
+  const okTask = confirm("Are you sure you want to delete this task?");
+
+  if (!okTask) return;
+
   tasks = remainingTask;
 
   renderTasks(tasks);
@@ -112,6 +117,9 @@ const updateCompletedCount = () => {
 
 const clearCompleted = () => {
   tasks = tasks.filter((task) => !task.isComplete);
+  const ok = confirm("Are you sure you want to clear all completed tasks?");
+
+  if (!ok) return;
 
   renderTasks(tasks);
   updateCompletedCount();
@@ -120,6 +128,12 @@ const clearCompleted = () => {
 showAll.onclick = () => onChangeFilter("all");
 showActive.onclick = () => onChangeFilter("active");
 showCompleted.onclick = () => onChangeFilter("completed");
+
+inputs.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    add();
+  }
+});
 
 addElement.addEventListener("click", add);
 
